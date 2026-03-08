@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tajiri Bwika | Data Analytics Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <a href="#" class="logo">Tajiri Bwika</a>
+
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#contact">Contact</a>
+
+      <a class="resume-btn" href="TajiriBwika_Resume.pdf" download>
+        Resume
+      </a>
+
+      <img src="images/dark.svg" id="theme-toggle" class="dark-icon" alt="Toggle dark mode" />
+    </nav>
+  </header>
+
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="images/background.mp4" type="video/mp4" />
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="hero-tag">Business Analytics • Machine Learning • Data Storytelling</p>
+
+      <h1>Data Analyst & Machine Learning Engineer</h1>
+
+      <p class="hero-text">
+        Computer Science student specializing in Business Analytics, building fraud detection models,
+        analytics dashboards, recommendation systems, and business intelligence solutions.
+      </p>
+
+      <div class="hero-buttons">
+        <a class="cta" href="#projects">View Projects</a>
+        <a class="cta-outline" href="https://github.com/Tajiri-Bwika" target="_blank">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="about" class="glass-section reveal">
+      <div class="section-heading">
+        <span class="section-kicker">Profile</span>
+        <h2>About</h2>
+      </div>
+
+      <p>
+        Data analyst and machine learning practitioner focused on business intelligence and data driven decision systems.
+    My work centers on transforming complex datasets into insights which support strategy and operational growth.
+    </p>
+      <p>
+    I design systems which convert raw data into actionable business intelligence. My projects include fraud detection models,
+    predictive sales forecasting, customer segmentation, and recommendation systems.
+  </p>
+
+  <p>
+    My toolkit includes Python, R, SQL, Apache Spark, Tableau, and Streamlit. I build analytics pipelines, dashboards,
+    and machine learning models used to guide business strategy and decision making.
+  </p>
+
+  <p class="highlight-line">
+    Help companies win through data driven decisions.
+  </p>
+    </section>
+
+    <section id="skills" class="reveal">
+      <div class="section-heading">
+        <span class="section-kicker">Capabilities</span>
+        <h2>Technical Skills</h2>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-tile">Python</div>
+        <div class="skill-tile">SQL</div>
+        <div class="skill-tile">R</div>
+        <div class="skill-tile">Apache Spark</div>
+        <div class="skill-tile">PySpark</div>
+        <div class="skill-tile">Pandas</div>
+        <div class="skill-tile">NumPy</div>
+        <div class="skill-tile">Machine Learning</div>
+        <div class="skill-tile">Tableau</div>
+        <div class="skill-tile">Power BI</div>
+        <div class="skill-tile">Streamlit</div>
+        <div class="skill-tile">Git & GitHub</div>
+      </div>
+    </section>
+
+    <section id="projects" class="reveal">
+      <div class="section-heading">
+        <span class="section-kicker">Portfolio</span>
+        <h2>Featured Projects</h2>
+      </div>
+
+      <div class="projects-grid">
+
+        <article class="project-card">
+          <div class="card-glow"></div>
+          <span class="project-badge">Live</span>
+          <h3>Crime Against Women Analytics</h3>
+          <p>
+            Interactive analytics dashboard analyzing crime trends against women using Python and
+            Streamlit with dynamic filtering and visual storytelling.
+          </p>
+          <p class="tech">Python • Streamlit • Pandas • Data Visualization</p>
+          <a href="https://analysis-of-crimes-against-women.streamlit.app/" target="_blank">Live Demo</a>
+        </article>
+
+        <article class="project-card">
+          <div class="card-glow"></div>
+          <span class="project-badge">ML</span>
+          <h3>Fraud Detection System</h3>
+          <p>
+            Machine learning pipeline for detecting fraudulent financial transactions using Apache
+            Spark, PySpark, and model evaluation workflows.
+          </p>
+          <p class="tech">Apache Spark • PySpark • MLlib</p>
+          <a href="https://github.com/Tajiri-Bwika" target="_blank">View Code</a>
+        </article>
+
+        <article class="project-card">
+          <div class="card-glow"></div>
+          <span class="project-badge">Analytics</span>
+          <h3>E-Commerce Customer Intelligence</h3>
+          <p>
+            Customer segmentation and purchasing behavior analysis using RFM modeling, clustering,
+            and market-basket analytics.
+          </p>
+          <p class="tech">R • SQL • Data Mining</p>
+          <a href="https://github.com/Tajiri-Bwika" target="_blank">View Code</a>
+        </article>
+
+        <article class="project-card">
+          <div class="card-glow"></div>
+          <span class="project-badge">ETL</span>
+          <h3>Data Warehouse ETL Pipeline</h3>
+          <p>
+            Built a star schema data warehouse and automated ETL workflows for scalable e-commerce
+            reporting and analysis.
+          </p>
+          <p class="tech">Pentaho • MySQL • ETL</p>
+          <a href="https://github.com/Tajiri-Bwika" target="_blank">View Code</a>
+        </article>
+
+        <article class="project-card">
+          <div class="card-glow"></div>
+          <span class="project-badge">RecSys</span>
+          <h3>Movie Recommendation System</h3>
+          <p>
+            Collaborative filtering recommendation engine generating personalized movie suggestions
+            from historical user behavior.
+          </p>
+          <p class="tech">Python • Machine Learning • Recommendation Systems</p>
+          <a href="https://github.com/Tajiri-Bwika" target="_blank">View Code</a>
+        </article>
+
+        <article class="project-card">
+          <div class="card-glow"></div>
+          <span class="project-badge">AI</span>
+          <h3>RAG AI Chatbot</h3>
+          <p>
+            AI knowledge retrieval chatbot combining vector search pipelines with large language
+            model responses for contextual answers.
+          </p>
+          <p class="tech">Python • NLP • LLM • RAG</p>
+          <a href="https://github.com/Tajiri-Bwika" target="_blank">View Code</a>
+        </article>
+
+        <article class="project-card">
+          <div class="card-glow"></div>
+          <span class="project-badge">BI</span>
+          <h3>Global Health Analytics Dashboard</h3>
+          <p>
+            Large scale global health data analysis with dashboard design focused on comparative
+            country performance and public health indicators.
+          </p>
+          <p class="tech">Python • Tableau • EDA</p>
+          <a href="https://github.com/Tajiri-Bwika" target="_blank">View Code</a>
+        </article>
+
+        <article class="project-card">
+          <div class="card-glow"></div>
+          <span class="project-badge">Forecasting</span>
+          <h3>Sales Forecasting Model</h3>
+          <p>
+            Time series forecasting using ARIMA and SARIMA to predict sales demand and support
+            planning decisions.
+          </p>
+          <p class="tech">Python • ARIMA • SARIMA • Time Series</p>
+          <a href="https://github.com/Tajiri-Bwika" target="_blank">View Code</a>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="experience" class="reveal">
+      <div class="section-heading">
+        <span class="section-kicker">Background</span>
+        <h2>Experience</h2>
+      </div>
+
+      <div class="experience-container">
+
+        <article class="experience-card">
+          <div class="experience-top">
+            <h3>Christon Institutions</h3>
+            <span class="experience-pill">Jan 2025 - Present</span>
+          </div>
+          <p class="role">Email Infrastructure & Website Development</p>
+          <ul>
+            <li>Designed and launched a custom institution email platform for stronger tracking and follow-up.</li>
+            <li>Developed and deployed the official school website to improve digital visibility and stakeholder access.</li>
+            <li>Configured domain routing, redirects, Google Search Console, and search optimization workflows.</li>
+          </ul>
+        </article>
+
+        <article class="experience-card">
+          <div class="experience-top">
+            <h3>Freelance</h3>
+            <span class="experience-pill">2025 - Present</span>
+          </div>
+          <p class="role">Graphic Design & Social Media Marketing</p>
+          <ul>
+            <li>Designed more than 150 marketing banners for restaurant brands in Tanzania.</li>
+            <li>Improved brand presentation and campaign performance through structured digital design work.</li>
+            <li>Supported content marketing initiatives with stronger audience reach and engagement.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="contact" class="glass-section reveal">
+      <div class="section-heading">
+        <span class="section-kicker">Connect</span>
+        <h2>Contact</h2>
+      </div>
+
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:tajirihatibu72@gmail.com">
+          <span class="contact-label">Email</span>
+          <span class="contact-value">tajirihatibu72@gmail.com</span>
+        </a>
+
+        <a class="contact-card" href="https://github.com/Tajiri-Bwika" target="_blank">
+          <span class="contact-label">GitHub</span>
+          <span class="contact-value">Tajiri-Bwika</span>
+        </a>
+
+        <a class="contact-card" href="https://linkedin.com/in/tajiri-bwika" target="_blank">
+          <span class="contact-label">LinkedIn</span>
+          <span class="contact-value">Tajiri Bwika</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Tajiri Bwika</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
