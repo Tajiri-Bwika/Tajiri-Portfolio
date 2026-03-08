@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tajiri-bwika.github.io/Tajiri-Portfolio/sitemap.xml
