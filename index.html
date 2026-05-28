@@ -3,263 +3,358 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="favicon.png">
-  
+  <link rel="icon" type="image/png" href="favicon.png" />
+
   <meta name="google-site-verification" content="QUe3SGOu6TEqPNqlHem2T1eGWzrw0-cBqDq_rGCnjrQ" />
 
-  <meta name="description" content="Tajiri Bwika Data Analytics and Machine Learning Portfolio. Projects include fraud detection, crime analytics dashboards, recommendation systems and predictive modeling using Python, Spark and SQL.">
-  <meta name="keywords" content="Tajiri Bwika, Data Analyst Portfolio, Machine Learning Portfolio, Python Data Analytics, Streamlit Dashboard, Spark ML">
-  <meta name="author" content="Tajiri Bwika">
-  <meta property="og:title" content="Tajiri Bwika | Data Analytics & Machine Learning Portfolio">
-  <meta property="og:description" content="Machine Learning and Data Analytics portfolio showcasing dashboards, predictive models and data engineering projects.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://tajiri-bwika.github.io/Tajiri-Portfolio/">
-  <meta property="og:image" content="https://tajiri-bwika.github.io/Tajiri-Portfolio/images/portfolio-preview.png">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="description" content="Tajiri Hatibu Bwika's data analytics and machine learning portfolio, featuring fraud detection, analytics dashboards, recommendation systems, ETL pipelines, and predictive modeling with Python, Spark, SQL, Tableau, and Streamlit." />
+  <meta name="keywords" content="Tajiri Hatibu Bwika, Data Analyst Portfolio, Machine Learning Portfolio, Python Data Analytics, Streamlit Dashboard, Spark ML, SQL, Tableau" />
+  <meta name="author" content="Tajiri Hatibu Bwika" />
+  <meta property="og:title" content="Tajiri Hatibu Bwika | Data Analytics & Machine Learning Portfolio" />
+  <meta property="og:description" content="Machine learning and data analytics portfolio showcasing dashboards, predictive models, and data engineering projects." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tajiri-bwika.github.io/Tajiri-Portfolio/" />
+  <meta property="og:image" content="https://tajiri-bwika.github.io/Tajiri-Portfolio/images/portfolio-preview.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <script type="application/ld+json">
-
 {
- "@context": "https://schema.org",
- "@type": "Person",
- "name": "Tajiri Bwika",
- "url": "https://tajiri-bwika.github.io/Tajiri-Portfolio/",
- "sameAs": [
-   "https://github.com/Tajiri-Bwika",
-   "https://linkedin.com/in/tajiri-bwika"
- ],
- "jobTitle": "Data Analyst and Machine Learning Engineer",
- "knowsAbout": [
-   "Python",
-   "Machine Learning",
-   "SQL",
-   "Apache Spark",
-   "Data Analytics",
-   "Streamlit",
-   "Data Visualization"
- ]
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Tajiri Hatibu Bwika",
+  "url": "https://tajiri-bwika.github.io/Tajiri-Portfolio/",
+  "sameAs": [
+    "https://github.com/Tajiri-Bwika",
+    "https://linkedin.com/in/tajiri-bwika"
+  ],
+  "jobTitle": "Data Analyst and Machine Learning Engineer",
+  "knowsAbout": [
+    "Python",
+    "Machine Learning",
+    "SQL",
+    "Apache Spark",
+    "Data Analytics",
+    "Streamlit",
+    "Data Visualization"
+  ]
 }
-
   </script>
 
-  <title>Tajiri Bwika | Data Analytics & Machine Learning Portfolio</title>
+  <title>Tajiri Hatibu Bwika | Data Analytics & Machine Learning Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;600;700&family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <header class="navbar">
-    <a href="#" class="logo">Tajiri Bwika</a>
+  <header class="navbar" aria-label="Primary navigation">
+    <a href="#" class="logo" aria-label="Tajiri Hatibu Bwika home">
+      <span class="logo-mark">THB</span>
+      <span>Tajiri Hatibu Bwika</span>
+    </a>
 
-    <nav>
+    <nav class="nav-links" aria-label="Site sections">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
-
-      <a class="resume-btn" href="TajiriBwika_Resume.pdf" download>
-        Resume
-      </a>
-
-      <img src="images/dark.svg" id="theme-toggle" class="dark-icon" alt="Toggle dark mode" />
     </nav>
+
+    <div class="nav-actions">
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+        <img src="images/dark.svg" alt="" aria-hidden="true" />
+      </button>
+      <a class="resume-btn" href="TajiriBwika_Resume.pdf" download>Resume</a>
+    </div>
   </header>
 
-  <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline>
+  <section class="hero" aria-labelledby="hero-title">
+    <video class="hero-video" autoplay muted loop playsinline poster="images/portfolio-preview.jpg">
       <source src="images/background.mp4" type="video/mp4" />
     </video>
 
     <div class="hero-overlay"></div>
 
-    <div class="hero-content">
-      <p class="hero-tag">Business Analytics • Machine Learning • Data Storytelling</p>
-
-      <h1>Data Analyst & Machine Learning Engineer</h1>
-
+    <div class="hero-inner">
+      <p class="hero-kicker">Business Analytics &bull; Machine Learning &bull; Data Storytelling</p>
+      <h1 id="hero-title">Tajiri Hatibu Bwika</h1>
+      <p class="hero-role">Data Analyst & Machine Learning Engineer</p>
       <p class="hero-text">
-        Computer Science student specializing in Business Analytics, building fraud detection models,
-        analytics dashboards, recommendation systems, and business intelligence solutions.
+        I shape raw data into stories people can trust: dashboards with clarity,
+        predictive models with purpose, and analytical systems built for real decisions.
       </p>
 
-      <div class="hero-buttons">
-        <a class="cta" href="#projects">View Projects</a>
-        <a class="cta-outline" href="https://github.com/Tajiri-Bwika" target="_blank">GitHub</a>
+      <div class="hero-actions" aria-label="Primary actions">
+        <a class="button primary" href="#projects">View projects</a>
+        <a class="button secondary" href="#contact">Contact me</a>
+        <a class="button ghost" href="https://github.com/Tajiri-Bwika" target="_blank" rel="noreferrer">GitHub</a>
       </div>
+
+      <div class="hero-metrics" aria-label="Portfolio highlights">
+        <div class="metric-tile">
+          <span class="metric-value">8</span>
+          <span class="metric-label">featured projects</span>
+        </div>
+        <div class="metric-tile">
+          <span class="metric-value">150+</span>
+          <span class="metric-label">campaign assets shipped</span>
+        </div>
+        <div class="metric-tile">
+          <span class="metric-value">2026</span>
+          <span class="metric-label">computer science graduation</span>
+        </div>
+      </div>
+
+      <p class="hero-signature">
+        Thoughtful analytics, built with discipline and a little bit of visual grace.
+      </p>
+
+      <button class="hero-command" type="button" data-command-open aria-haspopup="dialog" aria-controls="command-palette" aria-expanded="false">
+        <span>Open the portfolio command palette</span>
+        <kbd>K</kbd>
+      </button>
     </div>
   </section>
 
-  <main>
-    <section id="about" class="glass-section reveal">
+  <main id="main">
+    <section id="about" class="content-section about-section reveal" aria-labelledby="about-title">
       <div class="section-heading">
         <span class="section-kicker">Profile</span>
-        <h2>About</h2>
+        <h2 id="about-title">Analytical work with a human pulse.</h2>
       </div>
 
-      <p>
-        Data analyst and machine learning practitioner focused on business intelligence and data driven decision systems.
-    My work centers on transforming complex datasets into insights which support strategy and operational growth.
-    </p>
-      <p>
-    I design systems which convert raw data into actionable business intelligence. My projects include fraud detection models,
-    predictive sales forecasting, customer segmentation, and recommendation systems.
-  </p>
+      <div class="about-layout">
+        <div class="about-copy">
+          <p class="lead-copy">
+            I am a Computer Science student specializing in Business Analytics, focused on
+            turning complex datasets into practical decision systems for strategy, operations,
+            and growth.
+          </p>
+          <p>
+            My work spans fraud detection models, sales forecasting, customer segmentation,
+            recommendation systems, ETL pipelines, and dashboards that make data easier to act on.
+          </p>
+          <p>
+            I work with Python, R, SQL, Apache Spark, Tableau, Power BI, and Streamlit to build
+            analytics products from raw data through final insight delivery.
+          </p>
+        </div>
 
-  <p>
-    My toolkit includes Python, R, SQL, Apache Spark, Tableau, and Streamlit. I build analytics pipelines, dashboards,
-    and machine learning models used to guide business strategy and decision making.
-  </p>
-
-  <p class="highlight-line">
-    Help companies win through data driven decisions.
-  </p>
+        <div class="impact-list" aria-label="Work focus">
+          <div class="impact-item">
+            <span>01</span>
+            <strong>Model business behavior</strong>
+            <p>Forecast demand, detect fraud, segment customers, and expose operational patterns.</p>
+          </div>
+          <div class="impact-item">
+            <span>02</span>
+            <strong>Build usable analytics</strong>
+            <p>Design dashboards and reports that help teams scan, compare, and decide quickly.</p>
+          </div>
+          <div class="impact-item">
+            <span>03</span>
+            <strong>Ship practical systems</strong>
+            <p>Create pipelines, data marts, and interfaces that connect analysis to real workflows.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="skills" class="reveal">
+    <section id="skills" class="content-section reveal" aria-labelledby="skills-title">
       <div class="section-heading">
         <span class="section-kicker">Capabilities</span>
-        <h2>Technical Skills</h2>
+        <h2 id="skills-title">Technical stack</h2>
       </div>
 
       <div class="skills-grid">
-        <div class="skill-tile">Python</div>
-        <div class="skill-tile">SQL</div>
-        <div class="skill-tile">R</div>
-        <div class="skill-tile">Apache Spark</div>
-        <div class="skill-tile">PySpark</div>
-        <div class="skill-tile">Pandas</div>
-        <div class="skill-tile">NumPy</div>
-        <div class="skill-tile">Machine Learning</div>
-        <div class="skill-tile">Tableau</div>
-        <div class="skill-tile">Power BI</div>
-        <div class="skill-tile">Streamlit</div>
-        <div class="skill-tile">Git & GitHub</div>
+        <article class="skill-group">
+          <h3>Analysis</h3>
+          <div class="skill-tags">
+            <span>Python</span>
+            <span>SQL</span>
+            <span>R</span>
+            <span>Pandas</span>
+            <span>NumPy</span>
+          </div>
+        </article>
+
+        <article class="skill-group">
+          <h3>Machine Learning</h3>
+          <div class="skill-tags">
+            <span>Classification</span>
+            <span>Forecasting</span>
+            <span>Clustering</span>
+            <span>Recommendation Systems</span>
+          </div>
+        </article>
+
+        <article class="skill-group">
+          <h3>Data Engineering</h3>
+          <div class="skill-tags">
+            <span>Apache Spark</span>
+            <span>PySpark</span>
+            <span>ETL</span>
+            <span>MySQL</span>
+            <span>Pentaho</span>
+          </div>
+        </article>
+
+        <article class="skill-group">
+          <h3>Business Intelligence</h3>
+          <div class="skill-tags">
+            <span>Tableau</span>
+            <span>Power BI</span>
+            <span>Streamlit</span>
+            <span>Data Visualization</span>
+            <span>Git & GitHub</span>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section id="projects" class="reveal">
-      <div class="section-heading">
-        <span class="section-kicker">Portfolio</span>
-        <h2>Featured Projects</h2>
+    <section id="projects" class="content-section reveal" aria-labelledby="projects-title">
+      <div class="section-heading split-heading">
+        <div>
+          <span class="section-kicker">Portfolio</span>
+          <h2 id="projects-title">Selected work</h2>
+        </div>
+
+        <div class="project-filters" role="group" aria-label="Filter projects">
+          <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-button" type="button" data-filter="analytics" aria-pressed="false">Analytics</button>
+          <button class="filter-button" type="button" data-filter="ml" aria-pressed="false">ML</button>
+          <button class="filter-button" type="button" data-filter="engineering" aria-pressed="false">Data</button>
+          <button class="filter-button" type="button" data-filter="ai" aria-pressed="false">AI</button>
+        </div>
       </div>
 
       <div class="projects-grid">
-
-        <article class="project-card">
-          <div class="card-glow"></div>
-          <span class="project-badge">Live</span>
+        <article class="project-card" data-category="analytics">
+          <div class="project-topline">
+            <span class="project-badge live">Live</span>
+            <span class="project-type">Public dashboard</span>
+          </div>
           <h3>Crime Against Women Analytics</h3>
           <p>
-            Interactive analytics dashboard analyzing crime trends against women using Python and
-            Streamlit with dynamic filtering and visual storytelling.
+            Interactive Streamlit dashboard for exploring crime trends against women with
+            dynamic filters, visual storytelling, and insight-oriented analysis.
           </p>
-          <p class="tech">Python • Streamlit • Pandas • Data Visualization</p>
-          <a href="https://analysis-of-crimes-against-women.streamlit.app/" target="_blank">Live Demo</a>
+          <p class="tech">Python &bull; Streamlit &bull; Pandas &bull; Data Visualization</p>
+          <a href="https://analysis-of-crimes-against-women.streamlit.app/" target="_blank" rel="noreferrer">Open live demo</a>
         </article>
 
-        <article class="project-card">
-          <div class="card-glow"></div>
-          <span class="project-badge">ML</span>
+        <article class="project-card" data-category="ml">
+          <div class="project-topline">
+            <span class="project-badge">ML</span>
+            <span class="project-type">Risk modeling</span>
+          </div>
           <h3>Fraud Detection System</h3>
           <p>
-            Machine learning pipeline for detecting fraudulent financial transactions using Apache
-            Spark, PySpark, and model evaluation workflows.
+            Machine learning pipeline for detecting fraudulent financial transactions using
+            Apache Spark, PySpark, and model evaluation workflows.
           </p>
-          <p class="tech">Apache Spark • PySpark • MLlib</p>
-          <a href="https://github.com/Tajiri-Bwika" target="_blank">View Code</a>
+          <p class="tech">Apache Spark &bull; PySpark &bull; MLlib</p>
+          <a href="https://github.com/Tajiri-Bwika" target="_blank" rel="noreferrer">View code</a>
         </article>
 
-        <article class="project-card">
-          <div class="card-glow"></div>
-          <span class="project-badge">Analytics</span>
+        <article class="project-card" data-category="analytics ml">
+          <div class="project-topline">
+            <span class="project-badge">Analytics</span>
+            <span class="project-type">Customer intelligence</span>
+          </div>
           <h3>E-Commerce Customer Intelligence</h3>
           <p>
-            Customer segmentation and purchasing behavior analysis using RFM modeling, clustering,
-            and market-basket analytics.
+            Customer segmentation and purchasing behavior analysis using RFM modeling,
+            clustering, and market-basket analytics.
           </p>
-          <p class="tech">R • SQL • Data Mining</p>
-          <a href="https://github.com/Tajiri-Bwika" target="_blank">View Code</a>
+          <p class="tech">R &bull; SQL &bull; Data Mining</p>
+          <a href="https://github.com/Tajiri-Bwika" target="_blank" rel="noreferrer">View code</a>
         </article>
 
-        <article class="project-card">
-          <div class="card-glow"></div>
-          <span class="project-badge">ETL</span>
+        <article class="project-card" data-category="engineering">
+          <div class="project-topline">
+            <span class="project-badge">ETL</span>
+            <span class="project-type">Warehouse design</span>
+          </div>
           <h3>Data Warehouse ETL Pipeline</h3>
           <p>
-            Built a star schema data warehouse and automated ETL workflows for scalable e-commerce
-            reporting and analysis.
+            Star schema data warehouse and automated ETL workflows for scalable e-commerce
+            reporting, transformation, and analysis.
           </p>
-          <p class="tech">Pentaho • MySQL • ETL</p>
-          <a href="https://github.com/Tajiri-Bwika" target="_blank">View Code</a>
+          <p class="tech">Pentaho &bull; MySQL &bull; ETL</p>
+          <a href="https://github.com/Tajiri-Bwika" target="_blank" rel="noreferrer">View code</a>
         </article>
 
-        <article class="project-card">
-          <div class="card-glow"></div>
-          <span class="project-badge">RecSys</span>
+        <article class="project-card" data-category="ml">
+          <div class="project-topline">
+            <span class="project-badge">RecSys</span>
+            <span class="project-type">Personalization</span>
+          </div>
           <h3>Movie Recommendation System</h3>
           <p>
-            Collaborative filtering recommendation engine generating personalized movie suggestions
-            from historical user behavior.
+            Collaborative filtering recommendation engine generating personalized movie
+            suggestions from historical user behavior.
           </p>
-          <p class="tech">Python • Machine Learning • Recommendation Systems</p>
-          <a href="https://github.com/Tajiri-Bwika" target="_blank">View Code</a>
+          <p class="tech">Python &bull; Machine Learning &bull; Recommendation Systems</p>
+          <a href="https://github.com/Tajiri-Bwika" target="_blank" rel="noreferrer">View code</a>
         </article>
 
-        <article class="project-card">
-          <div class="card-glow"></div>
-          <span class="project-badge">AI</span>
+        <article class="project-card" data-category="ai engineering">
+          <div class="project-topline">
+            <span class="project-badge">AI</span>
+            <span class="project-type">Knowledge retrieval</span>
+          </div>
           <h3>RAG AI Chatbot</h3>
           <p>
-            AI knowledge retrieval chatbot combining vector search pipelines with large language
-            model responses for contextual answers.
+            AI knowledge retrieval chatbot combining vector search pipelines with large
+            language model responses for contextual answers.
           </p>
-          <p class="tech">Python • NLP • LLM • RAG</p>
-          <a href="https://github.com/Tajiri-Bwika" target="_blank">View Code</a>
+          <p class="tech">Python &bull; NLP &bull; LLM &bull; RAG</p>
+          <a href="https://github.com/Tajiri-Bwika" target="_blank" rel="noreferrer">View code</a>
         </article>
 
-        <article class="project-card">
-          <div class="card-glow"></div>
-          <span class="project-badge">BI</span>
+        <article class="project-card" data-category="analytics">
+          <div class="project-topline">
+            <span class="project-badge">BI</span>
+            <span class="project-type">Comparative reporting</span>
+          </div>
           <h3>Global Health Analytics Dashboard</h3>
           <p>
-            Large scale global health data analysis with dashboard design focused on comparative
-            country performance and public health indicators.
+            Large-scale global health analysis with dashboards focused on comparative country
+            performance and public health indicators.
           </p>
-          <p class="tech">Python • Tableau • EDA</p>
-          <a href="https://github.com/Tajiri-Bwika" target="_blank">View Code</a>
+          <p class="tech">Python &bull; Tableau &bull; EDA</p>
+          <a href="https://github.com/Tajiri-Bwika" target="_blank" rel="noreferrer">View code</a>
         </article>
 
-        <article class="project-card">
-          <div class="card-glow"></div>
-          <span class="project-badge">Forecasting</span>
+        <article class="project-card" data-category="ml analytics">
+          <div class="project-topline">
+            <span class="project-badge">Forecasting</span>
+            <span class="project-type">Planning model</span>
+          </div>
           <h3>Sales Forecasting Model</h3>
           <p>
             Time series forecasting using ARIMA and SARIMA to predict sales demand and support
-            planning decisions.
+            business planning decisions.
           </p>
-          <p class="tech">Python • ARIMA • SARIMA • Time Series</p>
-          <a href="https://github.com/Tajiri-Bwika" target="_blank">View Code</a>
+          <p class="tech">Python &bull; ARIMA &bull; SARIMA &bull; Time Series</p>
+          <a href="https://github.com/Tajiri-Bwika" target="_blank" rel="noreferrer">View code</a>
         </article>
-
       </div>
     </section>
 
-    <section id="experience" class="reveal">
+    <section id="experience" class="content-section reveal" aria-labelledby="experience-title">
       <div class="section-heading">
         <span class="section-kicker">Background</span>
-        <h2>Experience</h2>
+        <h2 id="experience-title">Experience</h2>
       </div>
 
       <div class="experience-container">
-
         <article class="experience-card">
           <div class="experience-top">
             <h3>Christon Institutions</h3>
@@ -285,14 +380,18 @@
             <li>Supported content marketing initiatives with stronger audience reach and engagement.</li>
           </ul>
         </article>
-
       </div>
     </section>
 
-    <section id="contact" class="glass-section reveal">
-      <div class="section-heading">
-        <span class="section-kicker">Connect</span>
-        <h2>Contact</h2>
+    <section id="contact" class="content-section contact-section reveal" aria-labelledby="contact-title">
+      <div class="section-heading split-heading">
+        <div>
+          <span class="section-kicker">Connect</span>
+          <h2 id="contact-title">Let us make the numbers speak beautifully.</h2>
+        </div>
+        <p class="section-note">
+          Open to analytics, dashboarding, machine learning, and data storytelling opportunities.
+        </p>
       </div>
 
       <div class="contact-grid">
@@ -301,46 +400,99 @@
           <span class="contact-value">tajirihatibu72@gmail.com</span>
         </a>
 
-        <a class="contact-card" href="https://github.com/Tajiri-Bwika" target="_blank">
+        <a class="contact-card" href="https://github.com/Tajiri-Bwika" target="_blank" rel="noreferrer">
           <span class="contact-label">GitHub</span>
           <span class="contact-value">Tajiri-Bwika</span>
         </a>
 
-        <a class="contact-card" href="https://linkedin.com/in/tajiri-bwika" target="_blank">
+        <a class="contact-card" href="https://linkedin.com/in/tajiri-bwika" target="_blank" rel="noreferrer">
           <span class="contact-label">LinkedIn</span>
-          <span class="contact-value">Tajiri Bwika</span>
+          <span class="contact-value">Tajiri Hatibu Bwika</span>
         </a>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>© 2026 Tajiri Bwika</p>
+    <p>&copy; 2026 Tajiri Hatibu Bwika. Built for clear thinking, useful proof, and better decisions.</p>
   </footer>
 
-  <!-- Chatbot Widget -->
-  <div id="chatbot-button" class="chatbot-button" title="Chat with Tajiri's assistant">
-    Ask about Tajiri
+  <div id="command-palette" class="command-palette" role="dialog" aria-modal="true" aria-labelledby="command-title" hidden>
+    <div class="command-panel">
+      <div class="command-header">
+        <div>
+          <p class="command-kicker">Quick launcher</p>
+          <h2 id="command-title">Where should we go?</h2>
+        </div>
+        <button id="command-close" class="command-close" type="button" aria-label="Close command palette">&times;</button>
+      </div>
+
+      <label class="sr-only" for="command-search">Search portfolio sections</label>
+      <input id="command-search" class="command-search" type="search" placeholder="Search projects, skills, resume, contact..." autocomplete="off" />
+
+      <div class="command-list" role="list" aria-label="Portfolio shortcuts">
+        <a class="command-item" href="#projects" data-command-keywords="projects portfolio selected work analytics machine learning dashboard">
+          <span>View selected work</span>
+          <small>Analytics dashboards, ML models, ETL, and AI projects</small>
+        </a>
+        <a class="command-item" href="#skills" data-command-keywords="skills stack tools python sql spark tableau power bi streamlit">
+          <span>Scan technical stack</span>
+          <small>Python, SQL, Spark, BI, visualization, and ML tooling</small>
+        </a>
+        <a class="command-item" href="#experience" data-command-keywords="experience background christon freelance marketing website">
+          <span>Read experience</span>
+          <small>Infrastructure, web development, design, and marketing work</small>
+        </a>
+        <a class="command-item" href="TajiriBwika_Resume.pdf" download data-command-keywords="resume cv download">
+          <span>Download resume</span>
+          <small>Save Tajiri Hatibu Bwika's resume</small>
+        </a>
+        <a class="command-item" href="mailto:tajirihatibu72@gmail.com" data-command-keywords="contact email hire reach">
+          <span>Send an email</span>
+          <small>Start a conversation about analytics or ML work</small>
+        </a>
+        <button class="command-item" type="button" data-command-action="assistant" data-command-keywords="assistant chatbot ask questions">
+          <span>Ask the portfolio assistant</span>
+          <small>Open the guided chat component</small>
+        </button>
+      </div>
+    </div>
   </div>
 
-  <div id="chatbot-modal" class="chatbot-modal">
+  <button id="chatbot-button" class="chatbot-button" type="button" aria-haspopup="dialog" aria-controls="chatbot-modal" aria-expanded="false">
+    <span class="chatbot-orb" aria-hidden="true">AI</span>
+    <span>Ask assistant</span>
+  </button>
+
+  <div id="chatbot-modal" class="chatbot-modal" role="dialog" aria-modal="true" aria-labelledby="chatbot-title">
     <div class="chatbot-header">
-      <h3>Tajiri Portfolio Assistant</h3>
-      <button id="chatbot-close" class="chatbot-close" aria-label="Close chatbot">×</button>
+      <div class="chatbot-title-wrap">
+        <span class="assistant-status"><span aria-hidden="true"></span>Online</span>
+        <h3 id="chatbot-title">Signal Assistant</h3>
+        <p>Portfolio intelligence layer</p>
+      </div>
+      <button id="chatbot-close" class="chatbot-close" type="button" aria-label="Close assistant">&times;</button>
     </div>
 
-    <div id="chatbot-messages" class="chatbot-messages"></div>
+    <div id="chatbot-messages" class="chatbot-messages" aria-live="polite"></div>
 
-    <div class="chatbot-input-area">
+    <div class="chatbot-suggestions" aria-label="Suggested questions">
+      <button type="button" data-chat-prompt="What are Tajiri's strongest skills?">Skills</button>
+      <button type="button" data-chat-prompt="Show me Tajiri's best projects">Projects</button>
+      <button type="button" data-chat-prompt="How can I contact Tajiri?">Contact</button>
+    </div>
+
+    <form class="chatbot-input-area" id="chatbot-form">
+      <label class="sr-only" for="chatbot-input">Ask a question about Tajiri Hatibu Bwika</label>
       <input
         type="text"
         id="chatbot-input"
         class="chatbot-input"
-        placeholder="Ask me something..."
+        placeholder="Ask about projects, skills, or contact..."
         autocomplete="off"
       />
-      <button id="chatbot-send" class="chatbot-send">Send</button>
-    </div>
+      <button id="chatbot-send" class="chatbot-send" type="submit">Send</button>
+    </form>
   </div>
 
   <script src="script.js"></script>

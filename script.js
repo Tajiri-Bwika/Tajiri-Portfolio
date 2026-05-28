@@ -1,120 +1,260 @@
-document.querySelectorAll("nav a").forEach(link => {
-  link.addEventListener("click", function (e) {
-    const targetId = this.getAttribute("href");
+const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (targetId.startsWith("#")) {
-      e.preventDefault();
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", event => {
+    const targetId = link.getAttribute("href");
 
-      const target = document.querySelector(targetId);
-
-      if (target) {
-        target.scrollIntoView({
-          behavior: "smooth"
-        });
-      }
+    if (!targetId || !targetId.startsWith("#")) {
+      return;
     }
+
+    const target = document.querySelector(targetId);
+
+    if (!target) {
+      return;
+    }
+
+    event.preventDefault();
+    target.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "start"
+    });
   });
 });
 
-const toggle = document.getElementById("theme-toggle");
+const themeToggle = document.getElementById("theme-toggle");
+const storedTheme = localStorage.getItem("portfolio-theme");
 
-toggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-});
+function applyTheme(theme) {
+  const isDark = theme === "dark";
+  document.body.classList.toggle("dark-mode", isDark);
+
+  if (themeToggle) {
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+    themeToggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
+  }
+}
+
+if (storedTheme) {
+  applyTheme(storedTheme);
+}
+
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const nextTheme = document.body.classList.contains("dark-mode") ? "light" : "dark";
+    localStorage.setItem("portfolio-theme", nextTheme);
+    applyTheme(nextTheme);
+  });
+}
 
 const reveals = document.querySelectorAll(".reveal");
 
-const revealOnScroll = () => {
-  reveals.forEach(section => {
-    const rect = section.getBoundingClientRect();
+if ("IntersectionObserver" in window && !prefersReducedMotion) {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.16 });
 
-    if (rect.top < window.innerHeight - 100) {
-      section.classList.add("active");
+  reveals.forEach(section => revealObserver.observe(section));
+} else {
+  reveals.forEach(section => section.classList.add("active"));
+}
+
+const filterButtons = document.querySelectorAll(".filter-button");
+const projectCards = document.querySelectorAll(".project-card");
+
+filterButtons.forEach(button => {
+  button.addEventListener("click", () => {
+    const filter = button.dataset.filter;
+
+    filterButtons.forEach(item => {
+      const isActive = item === button;
+      item.classList.toggle("active", isActive);
+      item.setAttribute("aria-pressed", String(isActive));
+    });
+
+    projectCards.forEach(card => {
+      const categories = (card.dataset.category || "").split(" ");
+      const shouldShow = filter === "all" || categories.includes(filter);
+      card.hidden = !shouldShow;
+    });
+  });
+});
+
+(function initCommandPalette() {
+  const commandPalette = document.getElementById("command-palette");
+  const commandSearch = document.getElementById("command-search");
+  const commandClose = document.getElementById("command-close");
+  const commandTriggers = document.querySelectorAll("#command-open, [data-command-open]");
+  const commandItems = document.querySelectorAll(".command-item");
+
+  if (!commandPalette || !commandSearch || !commandClose || commandTriggers.length === 0) {
+    return;
+  }
+
+  function setTriggerState(isOpen) {
+    commandTriggers.forEach(trigger => {
+      trigger.setAttribute("aria-expanded", String(isOpen));
+    });
+  }
+
+  function openCommandPalette() {
+    commandPalette.hidden = false;
+    setTriggerState(true);
+    commandSearch.value = "";
+    filterCommandItems("");
+    window.setTimeout(() => commandSearch.focus(), prefersReducedMotion ? 0 : 80);
+  }
+
+  function closeCommandPalette() {
+    commandPalette.hidden = true;
+    setTriggerState(false);
+  }
+
+  function filterCommandItems(query) {
+    const normalizedQuery = query.trim().toLowerCase();
+
+    commandItems.forEach(item => {
+      const text = `${item.textContent || ""} ${item.dataset.commandKeywords || ""}`.toLowerCase();
+      item.hidden = normalizedQuery !== "" && !text.includes(normalizedQuery);
+    });
+  }
+
+  commandTriggers.forEach(trigger => {
+    trigger.addEventListener("click", openCommandPalette);
+  });
+
+  commandClose.addEventListener("click", closeCommandPalette);
+
+  commandPalette.addEventListener("click", event => {
+    if (event.target === commandPalette) {
+      closeCommandPalette();
     }
   });
-};
 
-window.addEventListener("scroll", revealOnScroll);
-window.addEventListener("load", revealOnScroll);
+  commandSearch.addEventListener("input", event => {
+    filterCommandItems(event.target.value);
+  });
 
-/* Chatbot Logic */
+  commandItems.forEach(item => {
+    item.addEventListener("click", event => {
+      const action = item.dataset.commandAction;
+      const href = item.getAttribute("href");
+
+      if (action === "assistant") {
+        event.preventDefault();
+        closeCommandPalette();
+        document.getElementById("chatbot-button")?.click();
+        return;
+      }
+
+      if (href && href.startsWith("#")) {
+        event.preventDefault();
+        closeCommandPalette();
+        document.querySelector(href)?.scrollIntoView({
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+          block: "start"
+        });
+      } else {
+        closeCommandPalette();
+      }
+    });
+  });
+
+  document.addEventListener("keydown", event => {
+    const target = event.target;
+    const isTyping = target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement || target?.isContentEditable;
+
+    if (event.key === "Escape" && !commandPalette.hidden) {
+      closeCommandPalette();
+      return;
+    }
+
+    if (event.key.toLowerCase() === "k" && !isTyping && commandPalette.hidden) {
+      event.preventDefault();
+      openCommandPalette();
+    }
+  });
+})();
+
 (function initChatbot() {
   const chatbotButton = document.getElementById("chatbot-button");
   const chatbotModal = document.getElementById("chatbot-modal");
   const chatbotClose = document.getElementById("chatbot-close");
+  const chatbotForm = document.getElementById("chatbot-form");
   const chatbotInput = document.getElementById("chatbot-input");
-  const chatbotSend = document.getElementById("chatbot-send");
   const chatbotMessages = document.getElementById("chatbot-messages");
+  const suggestionButtons = document.querySelectorAll("[data-chat-prompt]");
 
-  // Safe checks for chatbot elements
-  if (!chatbotButton || !chatbotModal || !chatbotClose || !chatbotInput || !chatbotSend || !chatbotMessages) {
+  if (!chatbotButton || !chatbotModal || !chatbotClose || !chatbotForm || !chatbotInput || !chatbotMessages) {
     return;
   }
 
-  // Keyword response mapping
   const keywordResponses = {
     greetings: {
       keywords: ["hi", "hello", "hey"],
-      response: "Hi. I'm Tajiri's portfolio assistant. Ask me about her skills, projects, experience, education, resume, or contact details."
+      response: "Hi. I can help you explore Tajiri Hatibu Bwika's portfolio. Ask about projects, skills, experience, education, resume, or contact details."
     },
     about: {
       keywords: ["who", "about", "profile"],
-      response: "Tajiri Bwika is a Computer Science student specializing in Business Analytics. She focuses on data analytics, machine learning, dashboards, fraud detection, customer intelligence, recommendation systems, and business intelligence solutions."
+      response: "Tajiri Hatibu Bwika is a Computer Science student specializing in Business Analytics, with work across dashboards, machine learning, fraud detection, customer intelligence, recommendation systems, and business intelligence."
     },
     skills: {
       keywords: ["skill", "tools", "technology", "tech stack"],
-      response: "Tajiri's skills include Python, R, SQL, Apache Spark, PySpark, Pandas, NumPy, Machine Learning, Tableau, Power BI, Streamlit, Git, GitHub, Pentaho, MySQL, Flask, and data visualization."
+      response: "Core skills include Python, R, SQL, Apache Spark, PySpark, Pandas, NumPy, Machine Learning, Tableau, Power BI, Streamlit, Git, GitHub, Pentaho, MySQL, and data visualization."
     },
     projects: {
       keywords: ["project", "portfolio", "work"],
-      response: "Tajiri's featured projects include Crime Against Women Analytics, Fraud Detection System, E-Commerce Customer Intelligence, Data Warehouse ETL Pipeline, Movie Recommendation System, RAG AI Chatbot, Global Health Dashboard, and Sales Forecasting Model."
+      response: "Featured projects include Crime Against Women Analytics, Fraud Detection System, E-Commerce Customer Intelligence, Data Warehouse ETL Pipeline, Movie Recommendation System, RAG AI Chatbot, Global Health Dashboard, and Sales Forecasting Model."
     },
     fraud: {
       keywords: ["fraud", "spark", "pyspark"],
-      response: "Her fraud detection project uses Apache Spark, PySpark, and MLlib to detect fraudulent financial transactions using machine learning workflows."
+      response: "The fraud detection project uses Apache Spark, PySpark, and MLlib to identify fraudulent financial transactions through machine learning workflows."
     },
     dashboard: {
-      keywords: ["dashboard", "streamlit", "tableau"],
-      response: "Tajiri has built dashboards using Streamlit and Tableau, including a crime analytics dashboard and a global health analytics dashboard."
+      keywords: ["dashboard", "streamlit", "tableau", "visualization"],
+      response: "Tajiri Hatibu Bwika builds dashboards with Streamlit and Tableau, including a live crime analytics dashboard and global health analytics reporting."
     },
     experience: {
       keywords: ["experience", "job", "career"],
-      response: "Tajiri has experience with Christon Institutions in email infrastructure and website development. She also works as a freelance graphic designer and supports social media marketing projects."
+      response: "Tajiri Hatibu Bwika works with Christon Institutions on email infrastructure and website development, and also freelances in graphic design and social media marketing."
     },
     education: {
       keywords: ["education", "university", "degree"],
-      response: "Tajiri is pursuing a Bachelor of Computer Science, majoring in Business Analytics, through INTI International University and Coventry University. Her graduation date is 2026."
+      response: "Tajiri Hatibu Bwika is pursuing a Bachelor of Computer Science, majoring in Business Analytics, through INTI International University and Coventry University. Graduation is expected in 2026."
     },
     contact: {
       keywords: ["contact", "email", "hire", "reach"],
-      response: "You can contact Tajiri by email at tajirihatibu72@gmail.com. You can also find her on GitHub as Tajiri-Bwika and LinkedIn as Tajiri Bwika."
+      response: "You can contact Tajiri Hatibu Bwika at tajirihatibu72@gmail.com, on GitHub as Tajiri-Bwika, or on LinkedIn as Tajiri Hatibu Bwika."
     },
     resume: {
       keywords: ["resume", "cv"],
-      response: "You can download Tajiri's resume using the Resume button in the navigation bar."
+      response: "Use the Resume button in the navigation bar to download Tajiri Hatibu Bwika's resume."
     },
     languages: {
       keywords: ["language", "speak"],
-      response: "Tajiri speaks English fluently, Swahili natively, Turkish at an intermediate level, and Chinese at a beginner level."
+      response: "Tajiri Hatibu Bwika speaks English fluently, Swahili natively, Turkish at an intermediate level, and Chinese at a beginner level."
     }
   };
 
-  const fallbackResponse = "I don't have that answer yet. Try asking about Tajiri's skills, projects, experience, education, resume, or contact details.";
+  const fallbackResponse = "I do not have that answer yet. Try asking about Tajiri Hatibu Bwika's skills, projects, experience, education, resume, or contact details.";
 
-  // Add opening message
   function addMessage(text, isBot = true) {
-    const messageDiv = document.createElement("div");
-    messageDiv.className = `chatbot-message ${isBot ? "bot" : "user"}`;
-    messageDiv.textContent = text;
-    chatbotMessages.appendChild(messageDiv);
+    const message = document.createElement("div");
+    message.className = `chatbot-message ${isBot ? "bot" : "user"}`;
+    message.textContent = text;
+    chatbotMessages.appendChild(message);
     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
   }
 
-  // Get bot response based on keywords
   function getBotResponse(userInput) {
     const lowerInput = userInput.toLowerCase();
 
-    for (const [key, data] of Object.entries(keywordResponses)) {
+    for (const data of Object.values(keywordResponses)) {
       if (data.keywords.some(keyword => lowerInput.includes(keyword))) {
         return data.response;
       }
@@ -123,51 +263,57 @@ window.addEventListener("load", revealOnScroll);
     return fallbackResponse;
   }
 
-  // Send message handler
+  function openChatbot() {
+    chatbotModal.classList.add("open");
+    chatbotButton.setAttribute("aria-expanded", "true");
+
+    if (chatbotMessages.children.length === 0) {
+      addMessage("Hi. Ask me about Tajiri Hatibu Bwika's skills, projects, experience, resume, or contact details.", true);
+    }
+
+    chatbotInput.focus();
+  }
+
+  function closeChatbot() {
+    chatbotModal.classList.remove("open");
+    chatbotButton.setAttribute("aria-expanded", "false");
+    chatbotButton.focus();
+  }
+
+  chatbotButton.addEventListener("click", openChatbot);
+  chatbotClose.addEventListener("click", closeChatbot);
+
   function handleSendMessage() {
     const userMessage = chatbotInput.value.trim();
 
-    if (!userMessage) return;
+    if (!userMessage) {
+      return;
+    }
 
-    // Display user message
     addMessage(userMessage, false);
     chatbotInput.value = "";
 
-    // Simulate bot thinking with delay
-    setTimeout(() => {
-      const botResponse = getBotResponse(userMessage);
-      addMessage(botResponse, true);
-    }, 500);
+    window.setTimeout(() => {
+      addMessage(getBotResponse(userMessage), true);
+    }, prefersReducedMotion ? 0 : 220);
   }
 
-  // Event listeners
-  chatbotButton.addEventListener("click", () => {
-    chatbotModal.classList.add("open");
-    chatbotInput.focus();
+  chatbotForm.addEventListener("submit", event => {
+    event.preventDefault();
+    handleSendMessage();
   });
 
-  chatbotClose.addEventListener("click", () => {
-    chatbotModal.classList.remove("open");
-  });
-
-  chatbotSend.addEventListener("click", handleSendMessage);
-
-  chatbotInput.addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
+  suggestionButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      chatbotInput.value = button.dataset.chatPrompt || "";
       handleSendMessage();
-    }
-  });
-
-  // Show opening message when modal opens
-  const observer = new MutationObserver((mutations) => {
-    mutations.forEach((mutation) => {
-      if (mutation.attributeName === "class") {
-        if (chatbotModal.classList.contains("open") && chatbotMessages.children.length === 0) {
-          addMessage("Hi, I'm Tajiri's portfolio assistant. Ask me about her skills, projects, experience, resume, or contact details.", true);
-        }
-      }
+      chatbotInput.focus();
     });
   });
 
-  observer.observe(chatbotModal, { attributes: true });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && chatbotModal.classList.contains("open")) {
+      closeChatbot();
+    }
+  });
 })();
